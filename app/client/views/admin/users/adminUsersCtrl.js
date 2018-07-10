@@ -70,7 +70,7 @@ angular.module('reg')
             text: "You are about to check in " + user.profile.name + "!",
             type: "warning",
             showCancelButton: true,
-            confirmButtonColor: "#DD6B55",
+            confirmButtonColor: "#35e2df",
             confirmButtonText: "Yes, check them in.",
             closeOnConfirm: false
             },
@@ -101,7 +101,7 @@ angular.module('reg')
           text: "You are about to accept " + user.profile.name + "!",
           type: "warning",
           showCancelButton: true,
-          confirmButtonColor: "#DD6B55",
+          confirmButtonColor: "#35e2df",
           confirmButtonText: "Yes, accept them.",
           closeOnConfirm: false
           }, function(){
@@ -112,7 +112,7 @@ angular.module('reg')
                 "Remember, this power is a privilege.",
               type: "warning",
               showCancelButton: true,
-              confirmButtonColor: "#DD6B55",
+              confirmButtonColor: "#35e2df",
               confirmButtonText: "Yes, accept this user.",
               closeOnConfirm: false
               }, function(){
