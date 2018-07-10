@@ -124,3 +124,20 @@ fieldset {
   width: 100%;
 }
 // @import 'animation';
+
+//Cutsom changes from CGC
+.purple {
+  background-color: #EC008B !important;
+}
+
+.purple:hover{
+  background-color: darken(#EC008B, 2%) !important;
+}
+
+.cyan{
+  background-color: #35e2df !important;
+}
+
+.cyan:hover {
+  background-color: darken(#35e2df, 2%) !important;
+}

@@ -75,7 +75,7 @@ angular.module('reg')
               title: "Awesome!",
               text: "Your application has been saved.",
               type: "success",
-              confirmButtonColor: "#e76482"
+              confirmButtonColor: "#35e2df"
             }, function(){
               $state.go('app.dashboard');
             });
@@ -167,7 +167,7 @@ angular.module('reg')
           _updateUser();
         }
         else{
-          sweetAlert("Uh oh!", "Please Fill The Required Fields", "error");
+          sweetAlert("Uh oh!", "Please fill the required fields", "error");
         }
       };
 
