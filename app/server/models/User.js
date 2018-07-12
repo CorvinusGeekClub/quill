@@ -6,24 +6,22 @@ var mongoose   = require('mongoose'),
 
 var profile = {
 
-  foodAllergy: {
-    lactose: {
+    foodAllergylactose: {
       type: Boolean,
       default: false
     },
-    glutein: {
+    foodAllergyglutein: {
       type: Boolean,
       default: false
     },
-    glucose: {
+    foodAllergyglucose: {
       type: Boolean,
       default: false
     },
-    otherExists: {
+    foodAllergyotherExists: {
       type: Boolean,
       default: false
-    }
-  },
+    },
 
   // Basic info
   name: {

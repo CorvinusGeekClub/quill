@@ -325,44 +325,89 @@
             Lactose
             </label>
             <label class="mb-10">
-            <input type="checkbox" id="foodAllergies-2" ng-model="user.profile.foodAllergy.gluten">
+            <input type="checkbox" id="foodAllergies-2" ng-model="user.profile.foodAllergygluten">
             Gluten</label>
             <label class="mb-10">
-            <input type="checkbox" id="foodAllergies-3" ng-model="user.profile.foodAllergy.glucose">
+            <input type="checkbox" id="foodAllergies-3" ng-model="user.profile.foodAllergyglucose">
             Glucose
             </label>
             <label class="mb-10">
-            <input type="checkbox" id="foodAllergies-4" ng-model="user.profile.foodAllergy.otherExists">
+            <input type="checkbox" id="foodAllergies-4" ng-model="user.profile.foodAllergyotherExists">
             Other: </label>
           </div>
         </div>
 
         <div class="field">
-          <label> Your Name </label>
+          <label> What is your current status?* </label>
+          <label>Studies:</label>
+          <div class="field ui radio checkbox">
+            <label class="font-weight-300">
+            <input type="radio" name="statusStudies" value="Bachelor">
+            Bachelor </label>
+            <!-- </div>
+            <div class="field ui radio checkbox"> -->
+            <label class="font-weight-300">
+            <input type="radio" name="statusStudies" value="Master">
+            Master </label>
+            <!-- </div>
+            <div class="field ui radio checkbox"> -->
+            <label class="font-weight-300">
+            <input type="radio" name="statusStudies" value="Doctoral Student">
+            Doctoral Student </label>
+            <!-- </div>
+            <div class="field ui radio checkbox"> -->
+            <label class="font-weight-300">
+            <input type="radio" name="statusStudies" value="Alumni">
+            Alumni </label>
+            <!-- </div>
+            <div class="field ui radio checkbox"> -->
+            <label class="font-weight-300">
+            <input type="radio" name="statusStudies" value="Other">
+            Other </label>
+          </div>
+          <label>Work status:</label>
+          <div class="field ui radio checkbox">
+            <label class="font-weight-300">
+            <input type="radio" name="statusWork" value="Part-timer / Student worker">
+            Part-timer / Student worker </label>
+            <label class="font-weight-300">
+            <input type="radio" name="statusWork" value="Freelancer">
+            Freelancer </label>
+            <label class="font-weight-300">
+            <input type="radio" name="statusWork" value="Full-timer">
+            Full-timer </label>
+            <label class="font-weight-300">
+            <input type="radio" name="statusWork" value="Entrepreneur">
+            Entrepreneur </label>
+            <label class="font-weight-300">
+            <input type="radio" name="statusWork" value="Unemployed">
+            Unemployed </label>
+            <label class="font-weight-300">
+            <input type="radio" name="statusWork" value="Other">
+            Other </label>
+          </div>
+        </div>
+
+
+        <div class="field">
+          <label> Your current/former educational institution* </label>
           <input type="text"
-                 name="name"
-                 ng-model="user.profile.name">
+                 name="eduInstitution"
+                 ng-model="user.profile.eduInstitution">
         </div>
 
         <div class="field">
-          <label> Your Name </label>
+          <label> Your field of study? </label>
           <input type="text"
-                 name="name"
-                 ng-model="user.profile.name">
+                 name="fieldOfStudy"
+                 ng-model="user.profile.fieldOfStudy">
         </div>
 
         <div class="field">
-          <label> Your Name </label>
+          <label> Your specialization? e.g.: backend, frontend, webdesigner…etc. </label>
           <input type="text"
-                 name="name"
-                 ng-model="user.profile.name">
-        </div>
-
-        <div class="field">
-          <label> Your Name </label>
-          <input type="text"
-                 name="name"
-                 ng-model="user.profile.name">
+                 name="specialization"
+                 ng-model="user.profile.specialization">
         </div>
 
         <div class="field">
