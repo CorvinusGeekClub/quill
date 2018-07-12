@@ -147,6 +147,42 @@ angular.module('reg')
                 }
               ]
             },
+            technology: {
+              identifier: 'technology',
+              rules: [
+                {
+                  type: 'empty',
+                  prompt: 'Please enter technology you used.'
+                }
+              ]
+            },
+            profExperienceCount: {
+              identifier: 'profExperienceCount',
+              rules: [
+                {
+                  type: 'integer[0..99]',
+                  prompt: 'Please enter a number.'
+                }
+              ]
+            },
+            projects: {
+              identifier: 'projects',
+              rules: [
+                {
+                  type: 'empty',
+                  prompt: 'Please write or link details about your previous projects.'
+                }
+              ]
+            },
+            participationCount: {
+              identifier: 'participationCount',
+              rules: [
+                {
+                  type: 'integer[0..99]',
+                  prompt: 'Please enter a number.'
+                }
+              ]
+            },
             adult: {
               identifier: 'adult',
               rules: [

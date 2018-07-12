@@ -61,6 +61,56 @@ var profile = {
     max: 1500
   },
 
+  fieldOfStudy: {
+    type: String,
+    min: 0,
+    max: 150
+  },
+
+  specialization: {
+    type: String,
+    min: 0,
+    max: 150
+  },
+
+  technology: {
+    type: String,
+    min: 1,
+    max: 150
+  },
+
+  profExperienceCount: {
+    type: Number
+  },
+
+  linkedIn: {
+    type: String,
+    min: 0,
+    max: 150
+  },
+
+  projects: {
+    type: String,
+    min: 0,
+    max: 300
+  },
+
+  participationCount: {
+    type: Number
+  },
+
+  experiences: {
+    type: String,
+    min: 0,
+    max: 150
+  },
+
+  hearAboutUs: {
+    type: String,
+    min: 0,
+    max: 300
+  },
+
   // Optional info for demographics
   gender: {
     type: String,
