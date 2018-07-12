@@ -397,80 +397,6 @@
                  name="specialization"
                  ng-model="user.profile.specialization">
         </div>
-        <div class="field">
-            <label> Your Name </label>
-            <input type="text" name="name" ng-model="user.profile.name">
-          </div>
-
-          <div class="field">
-            <label> Your Name </label>
-            <input type="text" name="name" ng-model="user.profile.name">
-          </div>
-
-          <div class="field">
-            <label> Your Name </label>
-            <input type="text" name="name" ng-model="user.profile.name">
-          </div>
-
-        <div class="field">
-          <label> Your Name </label>
-            <input type="text" name="name" ng-model="user.profile.name">
-        </div>
-
-        <div class="field">
-          <label> Your Name </label>
-            <input type="text" name="name" ng-model="user.profile.name">
-        </div>
-
-        <div class="field">
-          <label> Your Name </label>
-            <input type="text" name="name" ng-model="user.profile.name">
-        </div>
-
-        <div class="field">
-          <label> Your Name </label>
-            <input type="text" name="name" ng-model="user.profile.name">
-        </div>
-        <!-- sasd -->
-
-        <div class="field" ng-show="autoFilledSchool">
-          <label> School </label>
-            <input class="ui input" disabled="disabled" ng-show="autoFilledSchool" ng-model="user.profile.school">
-        </div>
-
-        <div class="field" ng-show="!autoFilledSchool">
-          <label> School </label>
-          <div id="school" class="ui search">
-            <div class="ui input">
-              <input class="prompt" type="text" placeholder="School" name="school" ng-model="user.profile.school">                
-            </div>
-            <div class="results"></div>
-          </div>
-        </div>
-
-        <div class="field">
-          <label>Graduation Year</label>
-            <select name="year" ng-model="user.profile.graduationYear">
-            <option value="">Graduation Year</option>
-            <option value="2016">2016</option>
-            <option value="2017">2017</option>
-            <option value="2018">2018</option>
-            <option value="2019">2019</option>
-          </select>
-        </div>
-
-        <div class="field">
-          <label>Gender</label>
-            <select name="gender" ng-model="user.profile.gender">
-            <option value="">Gender</option>
-            <option value="M">Male</option>
-            <option value="F">Female</option>
-            <option value="O">Other</option>
-            <option value="N">I prefer not to answer.</option>
-          </select>
-        </div>
-
-          
 
           <div class="field">
             <label>Your most used technology? / Most used technology?*</label>
@@ -511,22 +437,6 @@
           </label>
             <textarea ng-model="user.profile.hearAboutUs">
           </textarea>
-        </div>
-
-          <div class="field" ng-hide="isMitStudent">
-          <p>
-              Because of limitations imposed by MIT, we are not legally allowed to host non-MIT minors (those under 18) for HackMIT 2015.
-              Checking the box below affirms that you are or will be 18 years or older by September 19th, 2015.
-          </p>
-          <p>
-            <strong>
-            We will be checking ID. If you are a non-MIT minor, you will be turned away at the door.
-            </strong>
-          </p>
-          <div class="ui checkbox">
-            <input type="checkbox" id="adult" ng-model="user.profile.adult">
-            <label for="adult">I am 18 or older.</label>
-          </div>
         </div>
 
         <br>
