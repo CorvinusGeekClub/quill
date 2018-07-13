@@ -25,7 +25,7 @@
 
         <div class="field">
           <label> Your Age* </label>
-            <input type="text" name="name" ng-model="user.profile.name">
+            <input type="text" name="age" ng-model="user.profile.age">
         </div>
 
         <div class="field">
@@ -283,8 +283,8 @@
         <div class="field">
           <label> Check in for travel expenses </label>
           <div class="ui checkbox">
-            <input type="checkbox" id="travelExpNeeded" ng-model="user.profile.travelExpNeeded">
-            <label for="travelExpNeeded">Need travel expenses</label>
+            <input type="checkbox" id="travelReimbursementNeeded" ng-model="user.profile.travelReimbursementNeeded">
+            <label for="travelReimbursementNeeded">Need travel expenses</label>
           </div>
         </div>
 
@@ -292,15 +292,15 @@
           <label> Can you find yourself accommodation? </label>
           <div class="inline fields">
             <div class="field ui radio checkbox">
-            <input type="radio" name="finds-accommodation" id="f-acc-1" value="yes">
+            <input type="radio" name="findsAccommodation" ng-model="user.profile.findsAccommodation" id="f-acc-1" value="yes">
             <label class="font-weight-300" for="f-acc-1"> Yes </label>
             </div>
             <div class="field ui radio checkbox">
-            <input type="radio" name="finds-accommodation" id="f-acc-2" value="no">
+            <input type="radio" name="findsAccommodation" ng-model="user.profile.findsAccommodation" id="f-acc-2" value="no">
             <label class="font-weight-300" for="f-acc-2"> No </label>
             </div>
             <div class="field ui radio checkbox">
-            <input type="radio" name="finds-accommodation" id="f-acc-3" value="help">
+            <input type="radio" name="findsAccommodation" ng-model="user.profile.findsAccommodation" id="f-acc-3" value="help">
             <label class="font-weight-300" for="f-acc-3"> Need help</label>
             </div>
           </div>
@@ -309,70 +309,85 @@
         <div class="field">
           <label> Do you have any food allergies? </label>
           <div class="ui checkbox">
-            <label class="mb-10">
-                <input type="checkbox" id="foodAllergies-1" ng-model="user.profile.foodAllergy.lactose"> Lactose
-            </label>
-            <label class="mb-10">
-            <input type="checkbox" id="foodAllergies-2" ng-model="user.profile.foodAllergygluten">
-            Gluten</label>
-            <label class="mb-10">
-            <input type="checkbox" id="foodAllergies-3" ng-model="user.profile.foodAllergyglucose">
-            Glucose
-            </label>
-            <label class="mb-10">
-            <input type="checkbox" id="foodAllergies-4" ng-model="user.profile.foodAllergyotherExists">
-            Other: </label>
+            <input type="checkbox" id="foodAllergies-1" ng-model="user.profile.foodAllergyLactose">
+            <label for="foodAllergies-1" class="mb-10 mr-30"> Lactose </label>
+          </div>
+          <div class="ui checkbox">
+            <input type="checkbox" id="foodAllergies-2" ng-model="user.profile.foodAllergyGluten">
+            <label for="foodAllergies-2" class="mb-10 mr-30"> Gluten</label>
+          </div>
+          <div class="ui checkbox">
+            <input type="checkbox" id="foodAllergies-3" ng-model="user.profile.foodAllergyGlucose">
+            <label for="foodAllergies-3" class="mb-10 mr-30"> Glucose </label>
+          </div>
+          <div class="ui checkbox">
+            <input type="checkbox" id="foodAllergies-4" ng-model="user.profile.foodAllergyOtherExists">
+            <label for="foodAllergies-4" class="mb-10 mr-30"> Other: </label>
           </div>
         </div>
 
         <div class="field">
           <label> What is your current status?* </label>
           <label>Studies:</label>
-          <div class="field ui radio checkbox">
-            <label class="font-weight-300">
-            <input type="radio" name="statusStudies" value="Bachelor">
+          <div class="grouped fields">
+            <div class="field ui radio checkbox">
+            <input type="radio" name="statusStudies" ng-model="user.profile.statusStudies" id="statusStudies-1" value="Bachelor">
+            <label for="statusStudies-1" class="font-weight-300">
             Bachelor </label>
-            <!-- </div>
-            <div class="field ui radio checkbox"> -->
-            <label class="font-weight-300">
-            <input type="radio" name="statusStudies" value="Master">
+            </div>
+            <div class="field ui radio checkbox">
+            <input type="radio" name="statusStudies" ng-model="user.profile.statusStudies" id="statusStudies-2" value="Master">
+            <label for="statusStudies-2" class="font-weight-300">
             Master </label>
-            <!-- </div>
-            <div class="field ui radio checkbox"> -->
-            <label class="font-weight-300">
-            <input type="radio" name="statusStudies" value="Doctoral Student">
+            </div>
+            <div class="field ui radio checkbox">
+            <input type="radio" name="statusStudies" ng-model="user.profile.statusStudies" id="statusStudies-3" value="Doctoral Student">
+            <label for="statusStudies-3" class="font-weight-300">
             Doctoral Student </label>
-            <!-- </div>
-            <div class="field ui radio checkbox"> -->
-            <label class="font-weight-300">
-            <input type="radio" name="statusStudies" value="Alumni">
+            </div>
+            <div class="field ui radio checkbox">
+            <input type="radio" name="statusStudies" ng-model="user.profile.statusStudies" id="statusStudies-4" value="Alumni">
+            <label for="statusStudies-4" class="font-weight-300">
             Alumni </label>
-            <!-- </div>
-            <div class="field ui radio checkbox"> -->
-            <label class="font-weight-300">
-            <input type="radio" name="statusStudies" value="Other">
+            </div>
+            <div class="field ui radio checkbox">
+            <input type="radio" name="statusStudies" ng-model="user.profile.statusStudies" id="statusStudies-5" value="Other">
+            <label for="statusStudies-5" class="font-weight-300">
             Other </label>
+            </div>
           </div>
           <label>Work status:</label>
-          <div class="field ui radio checkbox">
-            <label class="font-weight-300">
-            <input type="radio" name="statusWork" value="Part-timer / Student worker">
+          <div class="grouped fields">
+            <div class="field ui radio checkbox font-weight-300">
+            <input type="radio" name="statusWork" ng-model="user.profile.statusWork" id="statusWork-1" value="Part-timer / Student worker">
+            <label for=statusWork-1>
             Part-timer / Student worker </label>
-            <label class="font-weight-300">
-            <input type="radio" name="statusWork" value="Freelancer">
+            </div>
+            <div class="field ui radio checkbox font-weight-300">
+            <input type="radio" name="statusWork" ng-model="user.profile.statusWork" id="statusWork-2" value="Freelancer">
+            <label for=statusWork-2>
             Freelancer </label>
-            <label class="font-weight-300">
-            <input type="radio" name="statusWork" value="Full-timer">
+            </div>
+            <div class="field ui radio checkbox font-weight-300">
+            <input type="radio" name="statusWork" ng-model="user.profile.statusWork" id="statusWork-3" value="Full-timer">
+            <label for=statusWork-3>
             Full-timer </label>
-            <label class="font-weight-300">
-            <input type="radio" name="statusWork" value="Entrepreneur">
+            </div>
+            <div class="field ui radio checkbox font-weight-300">
+            <input type="radio" name="statusWork" ng-model="user.profile.statusWork" id="statusWork-4" value="Entrepreneur">
+            <label for=statusWork-4>
             Entrepreneur </label>
-            <label class="font-weight-300">
-            <input type="radio" name="statusWork" value="Unemployed">
+            </div>
+            <div class="field ui radio checkbox font-weight-300">
+            <input type="radio" name="statusWork" ng-model="user.profile.statusWork" id="statusWork-5" value="Unemployed">
+            <label for=statusWork-5>
             Unemployed </label>
-            <label class="font-weight-300">
-            <input type="radio" name="statusWork" value="Other">
+            </div>
+            <div class="field ui radio checkbox font-weight-300">
+            <input type="radio" name="statusWork" ng-model="user.profile.statusWork" id="statusWork-6" value="Other">
+            <label for=statusWork-6>
             Other </label>
+            </div>
           </div>
         </div>
 

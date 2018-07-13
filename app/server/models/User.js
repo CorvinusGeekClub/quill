@@ -6,22 +6,74 @@ var mongoose   = require('mongoose'),
 
 var profile = {
 
-    foodAllergylactose: {
+    foodAllergyLactose: {
       type: Boolean,
       default: false
     },
-    foodAllergyglutein: {
+    foodAllergyGluten: {
       type: Boolean,
       default: false
     },
-    foodAllergyglucose: {
+    foodAllergyGlucose: {
       type: Boolean,
       default: false
     },
-    foodAllergyotherExists: {
+    foodAllergyOtherExists: {
       type: Boolean,
       default: false
     },
+
+  age: {
+    type: Number
+  },
+
+  homeCountry: {
+    type: String,
+    min: 4,
+    maxlength: 120,
+  },
+
+  travelReimbursementNeeded: {
+    type: Boolean,
+    default: false
+  },
+
+  findsAccommodation: {
+    type: String,
+    enum: {
+      values: 'yes no help'.split(' ')
+    }
+  },
+
+  statusStudies: {
+    type: String,
+    enum: {
+      values: [
+        "Bachelor",
+        "Master",
+        "Doctoral Student",
+        "Alumni",
+        "Other"
+      ]
+    }
+  },
+
+  statusWork: {
+    type: String,
+    enum: {
+      values: [
+        "Part-timer / Student worker",
+        "Freelancer",
+        "Full-timer",
+        "Entrepreneur",
+        "Unemployed",
+        "Other"      ]
+    }
+  },
+
+  eduInstitution: {
+    type: String
+  },
 
   // Basic info
   name: {

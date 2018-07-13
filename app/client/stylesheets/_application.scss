@@ -6,8 +6,14 @@
   }
   .font-weight-300 {
     font-weight: 300;
+    label {
+      font-weight: 300;
+    }
   }
   .mb-10 {
     margin-bottom: 10px;
+  }
+  .mr-30 {
+    margin-right: 30px;
   }
 }
