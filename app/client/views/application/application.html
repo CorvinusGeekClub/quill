@@ -30,7 +30,7 @@
 
         <div class="field">
           <label> Which country are you from?* </label>
-            <select class="ui fluid search selection dropdown" name="homeCountry" id="homeCountry" ng-model="user.profile.homeCountry">
+            <select class="ui fluid search selection dropdown countrydropdown" name="country" id="country" ng-model="user.profile.country">
              <option value="">Country...</option>
              <option value="Afganistan">Afghanistan</option>
              <option value="Albania">Albania</option>
@@ -328,7 +328,10 @@
 
         <div class="field">
           <label> What is your current status?* </label>
+        </div>
+        <div class="field">
           <label>Studies:</label>
+          <input type="hidden" name="statusStudiesHidden">
           <div class="grouped fields">
             <div class="field ui radio checkbox">
             <input type="radio" name="statusStudies" ng-model="user.profile.statusStudies" id="statusStudies-1" value="Bachelor">
@@ -356,7 +359,10 @@
             Other </label>
             </div>
           </div>
+        </div>
+        <div class="field">
           <label>Work status:</label>
+          <input type="hidden" name="statusWorkHidden">
           <div class="grouped fields">
             <div class="field ui radio checkbox font-weight-300">
             <input type="radio" name="statusWork" ng-model="user.profile.statusWork" id="statusWork-1" value="Part-timer / Student worker">

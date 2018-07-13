@@ -27,7 +27,7 @@ var profile = {
     type: Number
   },
 
-  homeCountry: {
+  country: {
     type: String,
     min: 4,
     maxlength: 120,

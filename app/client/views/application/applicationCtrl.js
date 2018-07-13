@@ -107,6 +107,10 @@ angular.module('reg')
           return minorsValidation();
         };
 
+        $.fn.form.settings.rules.radioSelected = function(value, name) {
+          return !!($("input[name=" + name + "]").filter(":checked").val());
+        };
+
         // Semantic-UI form validation
         $('.ui.form').form({
           inline: true,
@@ -117,6 +121,51 @@ angular.module('reg')
                 {
                   type: 'empty',
                   prompt: 'Please enter your name.'
+                }
+              ]
+            },
+            age: {
+              identifier: 'age',
+              rules: [
+                {
+                  type: 'integer[0..199]',
+                  prompt: 'Please enter your age.'
+                }
+              ]
+            },
+            country: {
+              identifier: 'country',
+              rules: [
+                {
+                  type: 'empty',
+                  prompt: 'Please enter your country.'
+                }
+              ]
+            },
+            statusStudiesHidden: {
+              identifier: 'statusStudiesHidden',
+              rules: [
+                {
+                  type: 'radioSelected[statusStudies]',
+                  prompt: 'Please select your studies.'
+                }
+              ]
+            },
+            statusWorkHidden: {
+              identifier: 'statusWorkHidden',
+              rules: [
+                {
+                  type: 'radioSelected[statusWork]',
+                  prompt: 'Please select your work status.'
+                }
+              ]
+            },
+            eduInstitution: {
+              identifier: 'eduInstitution',
+              rules: [
+                {
+                  type: 'empty',
+                  prompt: 'Please enter educational institution.'
                 }
               ]
             },
