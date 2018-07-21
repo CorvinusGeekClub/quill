@@ -184,6 +184,53 @@ UserController.createUser = function(email, password, callback) {
   });
 };
 
+/**
+ * Create a new user via GoodID (or login).
+ */
+UserController.createUserGoodID = function(email, name, callback) {
+
+  if (typeof email !== "string"){
+    return callback({
+      message: "Email must be a string."
+    });
+  }
+
+  email = email.toLowerCase();
+
+  var u = new User();
+  u.email = email;
+  u.verified = true;
+  u.profile.name = name;
+  u.hasGoodID = true;
+  u.save(function(err){
+    if (err){
+      // Duplicate key error codes
+      if (err.name === 'MongoError' && (err.code === 11000 || err.code === 11001)) {
+        var token = u.generateAuthToken();
+        return callback(
+          null,
+          {
+            token: token,
+            user: u
+          }
+        );
+      }
+
+      return callback(err);
+    } else {
+      // yay! success.
+      var token = u.generateAuthToken();
+      return callback(
+        null,
+        {
+          token: token,
+          user: u
+        }
+      );
+    }
+  });
+};
+
 UserController.getByToken = function (token, callback) {
   User.getByToken(token, callback);
 };

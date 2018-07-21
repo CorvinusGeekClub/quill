@@ -283,7 +283,7 @@ var schema = new mongoose.Schema({
 
   password: {
     type: String,
-    required: true,
+    required: false,
     select: false
   },
 
@@ -313,6 +313,12 @@ var schema = new mongoose.Schema({
   verified: {
     type: Boolean,
     required: true,
+    default: false
+  },
+
+  hasGoodID: {
+    type: Boolean,
+    required: false,
     default: false
   },
 
