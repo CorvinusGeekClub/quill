@@ -52,6 +52,35 @@
               </button>
             </div>
           </div>
+
+          <div class="ui form">
+            <div class="ui divider"></div>
+            <div class="field">
+              <div class="goodid-login-button" data-width="198" data-height="34" data-font-size="11" data-size="" data-style="blue" data-lang="en_US" data-endpoint="/_goodid/login"></div>
+            </div>
+          </div>
+          <script type="text/javascript">//<![CDATA[
+            (function(d, t, i) {
+                var s, b;
+                if (d.getElementById(i)) { return; }
+                s = d.createElement(t); s.id = i;
+                s.src = '//connect.goodid.net/v1.0/connect.min.js';
+                b = d.getElementsByTagName(t)[0]; b.parentNode.insertBefore(s, b);
+            })(document, 'script', 'goodid-sdk');
+            //]]></script>
+            <style type="text/css">
+              .goodid-login {
+                font-size: 1rem !important;
+                width: 100% !important;
+                min-height: 1em !important;
+                margin: 0 .25em 0 0 !important;
+                padding: .78571429em 1.5em !important;
+                font-weight: 700 !important;
+                max-height: 3.2em !important;
+                height: unset !important;
+                text-align: center !important;
+              }
+            </style>
         </div>
 
         <div ng-show="loginState === 'forgot'">
