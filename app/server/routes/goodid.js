@@ -1,6 +1,8 @@
 const express = require('express');
 const router = express.Router();
 
+let UserController = require('../controllers/UserController');
+
 const crypto = require('crypto');
 const fs = require('fs');
 const jose = require('node-jose');
@@ -154,6 +156,12 @@ router.get('/login', function (req, res, next) {
                         tokenSet,
                         userinfo
                     };
+
+                    UserController.createUserGoodID(
+                        userinfo.claims.email,
+                        userinfo.claims.name,
+                        console.log
+                    );
 
                     /*
                     TODO: Your should handle the received userinfo here.

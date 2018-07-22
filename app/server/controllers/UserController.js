@@ -206,6 +206,7 @@ UserController.createUserGoodID = function(email, name, callback) {
     if (err){
       // Duplicate key error codes
       if (err.name === 'MongoError' && (err.code === 11000 || err.code === 11001)) {
+        // user exists, do a login
         var token = u.generateAuthToken();
         return callback(
           null,

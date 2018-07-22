@@ -7,7 +7,7 @@ var session = require('express-session');
 module.exports = function(app) {
 
   app.use(session({
-    secret: 'keyboard cat',
+    secret: process.env.JWT_SECRET,
     resave: false,
     saveUninitialized: false
   }));
