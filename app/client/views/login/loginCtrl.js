@@ -3,11 +3,12 @@ angular.module('reg')
     '$scope',
     '$http',
     '$state',
+    '$window',
     'settings',
     'Session',
     'Utils',
     'AuthService',
-    function($scope, $http, $state, settings, Session, Utils, AuthService){
+    function($scope, $http, $state, $window, settings, Session, Utils, AuthService){
 
       // Is registration open?
       var Settings = settings.data;
@@ -55,9 +56,20 @@ angular.module('reg')
         });
       };
 
-      // $scope.$on('$stateChangeSuccess', function () {
-      //   console.log("WELOADED", Session.getToken());
-      // });
+      $scope.$on('$viewContentLoaded', function () {
+        // Re-add goodid script if already exists
+        if (document.getElementById('goodid-sdk')) {
+          (function(x){x.parentNode.removeChild(x);})(document.getElementById('goodid-sdk'));
+        }
+
+        (function(d, t, i) {
+          var s, b;
+          if (d.getElementById(i)) { return; }
+          s = d.createElement(t); s.id = i;
+          s.src = '//connect.goodid.net/v1.0/connect.min.js';
+          b = d.getElementsByTagName(t)[0]; b.parentNode.insertBefore(s, b);
+        })(document, 'script', 'goodid-sdk');
+      });
 
     }
   ]);
