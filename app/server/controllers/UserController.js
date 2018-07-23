@@ -231,14 +231,20 @@ UserController.createUserGoodID = function(email, name, callback) {
           u.hasGoodID = true;
           u.hasNoPassword = false;
           u.verified = true;
-          var token = u.generateAuthToken();
-          return callback(
-            null,
-            {
-              token: token,
-              user: u
+
+          u.save(function(err){
+            if (err) {
+              return callback(err);
             }
-          );
+            var token = u.generateAuthToken();
+            return callback(null,
+              {
+                token: token,
+                user: u
+              }
+            );
+
+          });
         });
       } else {
         return callback(err);
