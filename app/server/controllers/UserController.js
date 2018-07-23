@@ -50,7 +50,14 @@ function canRegister(email, password, callback){
     }
 
     // Check for emails.
-    //// Let's not!
+    if (!validator.isEmail(email)) {
+      return callback({
+        message: "Not a valid email."
+      }, false);
+    }
+
+    return callback(null, true);
+    //// Let's not filter for .edu!
     // Settings.getWhitelistedEmails(function(err, emails){
     //   if (err || !emails){
     //     return callback(err);
