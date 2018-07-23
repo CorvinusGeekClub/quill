@@ -50,19 +50,20 @@ function canRegister(email, password, callback){
     }
 
     // Check for emails.
-    Settings.getWhitelistedEmails(function(err, emails){
-      if (err || !emails){
-        return callback(err);
-      }
-      for (var i = 0; i < emails.length; i++) {
-        if (validator.isEmail(email) && endsWith(emails[i], email)){
-          return callback(null, true);
-        }
-      }
-      return callback({
-        message: "Not a valid educational email."
-      }, false);
-    });
+    //// Let's not!
+    // Settings.getWhitelistedEmails(function(err, emails){
+    //   if (err || !emails){
+    //     return callback(err);
+    //   }
+    //   for (var i = 0; i < emails.length; i++) {
+    //     if (validator.isEmail(email) && endsWith(emails[i], email)){
+    //       return callback(null, true);
+    //     }
+    //   }
+    //   return callback({
+    //     message: "Not a valid educational email."
+    //   }, false);
+    // });
 
   });
 }
@@ -110,6 +111,11 @@ UserController.loginWithPassword = function(email, password, callback){
           message: "We couldn't find you!"
         });
       }
+      if (user.hasNoPassword) {
+        return callback({
+          message: "You registered via GoodID, so you don't have a password yet. Click 'Forgot Password' to set a regular password too, or Log in with GoodID."
+        });
+      }
       if (!user.checkPassword(password)) {
         return callback({
           message: "That's not the right password."
@@ -143,7 +149,7 @@ UserController.createUser = function(email, password, callback) {
 
   email = email.toLowerCase();
 
-  // Check that there isn't a user with this email already.
+  // Check that reg is open
   canRegister(email, password, function(err, valid){
 
     if (err || !valid){
@@ -181,6 +187,62 @@ UserController.createUser = function(email, password, callback) {
       }
 
     });
+  });
+};
+
+/**
+ * Create a new user via GoodID (or login!). //Todo: better name
+ */
+UserController.createUserGoodID = function(email, name, callback) {
+
+  if (typeof email !== "string"){
+    return callback({
+      message: "Email must be a string."
+    });
+  }
+
+  email = email.toLowerCase();
+  // Todo: check canRegister to be in open interval
+
+  var u = new User();
+  u.email = email;
+  u.verified = true;
+  u.profile.name = name;
+  u.hasGoodID = true;
+  u.hasNoPassword = true;
+  u.save(function(err){
+    if (err){
+      // Duplicate key error codes
+      if (err.name === 'MongoError' && (err.code === 11000 || err.code === 11001)) {
+        // user exists, do a login
+        User.findOneByEmail(u.email).exec(function(err, user){
+          if (err || !user) {
+            return callback(err);
+          }
+          u = user;
+          var token = u.generateAuthToken();
+          return callback(
+            null,
+            {
+              token: token,
+              user: u
+            }
+          );
+        });
+      } else {
+        return callback(err);
+      }
+    } else {
+      // yay! success.
+      var token = u.generateAuthToken();
+      return callback(
+        null,
+        {
+          token: token,
+          user: u
+        }
+      );
+    }
   });
 };
 
