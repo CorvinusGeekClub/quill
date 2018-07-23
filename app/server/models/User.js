@@ -322,6 +322,12 @@ var schema = new mongoose.Schema({
     default: false
   },
 
+  hasNoPassword: {
+    type: Boolean,
+    required: false,
+    default: false
+  },
+
   salt: {
     type: Number,
     required: true,

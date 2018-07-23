@@ -4,9 +4,10 @@ angular.module('reg')
     '$http',
     '$state',
     'settings',
+    'Session',
     'Utils',
     'AuthService',
-    function($scope, $http, $state, settings, Utils, AuthService){
+    function($scope, $http, $state, settings, Session, Utils, AuthService){
 
       // Is registration open?
       var Settings = settings.data;
@@ -53,6 +54,10 @@ angular.module('reg')
           confirmButtonColor: "#35e2df"
         });
       };
+
+      // $scope.$on('$stateChangeSuccess', function () {
+      //   console.log("WELOADED", Session.getToken());
+      // });
 
     }
   ]);

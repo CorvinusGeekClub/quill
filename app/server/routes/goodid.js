@@ -40,7 +40,7 @@ const claims = {
         }
     }
 };
-const routePrefix = 'http://localhost:3000/_goodid';
+const routePrefix = process.env.ROOT_URL + '/_goodid';
 // -----------------------------------------------
 // TODO: ^^^
 // -----------------------------------------------
@@ -152,15 +152,29 @@ router.get('/login', function (req, res, next) {
                 .then(function (userinfo) {
                     console.log('userinfo %j', userinfo);
 
-                    const response = {
-                        tokenSet,
-                        userinfo
-                    };
-
                     UserController.createUserGoodID(
                         userinfo.claims.email,
                         userinfo.claims.name,
-                        console.log
+                        function(error, data) {
+                            if (error) {
+                                res.status(500).send(error);
+                            }
+                            // Begin questionable code - this could be an angularjs view?
+                            let response = `
+                                <html>
+                                <p>Redirecting...</p>
+                                <script>
+                                    localStorage.setItem('jwt', '${data.token}');
+                                    localStorage.setItem('currentUser', '${JSON.stringify(data.user)}');
+                                    localStorage.setItem('userId', '${data.user._id}');
+                                    window.location.replace('${process.env.ROOT_URL}');
+                                </script>
+                                </html>
+                            `
+                            res.set('Content-Type', 'text/html');
+                            res.send(response);
+                            // End questionable code
+                        }
                     );
 
                     /*
@@ -168,8 +182,7 @@ router.get('/login', function (req, res, next) {
                     Sub is the user identifier, claims contains the requested user data.
                      */
 
-                    res.set('Content-Type', 'application/json');
-                    res.send(JSON.stringify(response));
+
                 });
         })
         .catch(function (error) {
