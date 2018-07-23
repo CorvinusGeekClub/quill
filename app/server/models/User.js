@@ -171,6 +171,11 @@ var profile = {
     }
   },
 
+  secretQuestions: {
+    type: Array,
+    default: ['', '', '']
+  },
+
 };
 
 // Only after confirmed

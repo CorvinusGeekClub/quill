@@ -460,6 +460,11 @@
           </textarea>
         </div>
 
+        <div class="field" ng-repeat="item in [1,2,3]">
+          <label> Secret #{{ item }} </label>
+          <input type="text" ng-model="user.profile.secretQuestions[$index]">
+        </div>
+
         <br>
 
         <div class="field" ng-hide="regIsClosed">
