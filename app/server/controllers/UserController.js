@@ -220,6 +220,10 @@ UserController.createUserGoodID = function(email, name, callback) {
             return callback(err);
           }
           u = user;
+          // User changes for dual login method enabled users
+          u.hasGoodID = true;
+          u.hasNoPassword = false;
+          u.verified = true;
           var token = u.generateAuthToken();
           return callback(
             null,
