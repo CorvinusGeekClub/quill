@@ -322,7 +322,7 @@
           </div>
           <div class="ui checkbox">
             <input type="checkbox" id="foodAllergies-4" ng-model="user.profile.foodAllergyOtherExists">
-            <label for="foodAllergies-4" class="mb-10 mr-30"> Other: </label>
+            <label for="foodAllergies-4" class="mb-10 mr-30 label-other"> Other: <input type="text" name="foodAllergyOtherText" ng-model="user.profile.foodAllergyOtherText" ng-disabled="!user.profile.foodAllergyOtherExists"> </label>
           </div>
         </div>
 

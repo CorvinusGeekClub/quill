@@ -19,4 +19,12 @@
   .countrydropdown {
     padding: 0.5em !important;
   }
+  .label-other {
+    display: inline-flex;
+    input {
+      padding: 0.2em 0.2em;
+      margin-left: 0.5em;
+      margin-top: -0.25em;
+    }
+  }
 }

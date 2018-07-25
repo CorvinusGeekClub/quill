@@ -22,6 +22,9 @@ var profile = {
       type: Boolean,
       default: false
     },
+    foodAllergyOtherText: {
+      type: String
+    },
 
   age: {
     type: Number
