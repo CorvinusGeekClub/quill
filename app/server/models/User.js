@@ -166,12 +166,32 @@ var profile = {
     max: 300
   },
 
-  // Optional info for demographics
   gender: {
-    type: String,
-    enum : {
-      values: 'M F O N'.split(' ')
-    }
+    option: {
+      type: String,
+      enum: {
+        values: 'Man Woman Other:'.split(' ')
+      }
+    },
+    other: {
+      type: String
+    },
+  },
+
+  needsVisa: {
+    type: Boolean,
+  },
+
+  interestedJob: {
+    type: Boolean,
+  },
+
+  mlhAgree: {
+    type: Boolean,
+  },
+
+  junctionAgree: {
+    type: Boolean,
   },
 
   secretQuestions: {

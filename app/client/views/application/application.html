@@ -29,6 +29,25 @@
         </div>
 
         <div class="field">
+          <label>What gender do you identify as?*</label>
+          <input type="hidden" name="genderValidationHidden">
+          <div class="grouped fields">
+            <div class="field ui radio checkbox">
+            <input type="radio" name="genderOption" ng-model="user.profile.gender.option" id="g-o-1" value="Man">
+            <label class="font-weight-300" for="g-o-1"> Man </label>
+            </div>
+            <div class="field ui radio checkbox">
+            <input type="radio" name="genderOption" ng-model="user.profile.gender.option" id="g-o-2" value="Woman">
+            <label class="font-weight-300" for="g-o-2"> Woman </label>
+            </div>
+            <div class="field ui radio checkbox">
+            <input type="radio" name="genderOption" ng-model="user.profile.gender.option" id="g-o-3" value="Other:">
+            <label class="font-weight-300 label-other" for="g-o-3"> Other: <input type="text" name="genderOtherText" ng-model="user.profile.gender.other" ng-disabled="user.profile.gender.option != 'Other:'"> </label>
+            </div>
+          </div>
+        </div>
+
+        <div class="field">
           <label> Which country are you from?* </label>
             <select class="ui fluid search selection dropdown countrydropdown" name="country" id="country" ng-model="user.profile.country">
              <option value="">Country...</option>
@@ -289,6 +308,20 @@
         </div>
 
         <div class="field">
+          <label> Do you need Visa? </label>
+          <div class="inline fields">
+            <div class="field ui radio checkbox">
+            <input type="radio" name="needsVisa" ng-model="user.profile.needsVisa" id="nvisa-1" ng-value=true>
+            <label class="font-weight-300" for="nvisa-1"> Yes </label>
+            </div>
+            <div class="field ui radio checkbox">
+            <input type="radio" name="needsVisa" ng-model="user.profile.needsVisa" id="nvisa-2" ng-value=false>
+            <label class="font-weight-300" for="nvisa-2"> No </label>
+            </div>
+          </div>
+        </div>
+
+        <div class="field">
           <label> Can you find yourself accommodation? </label>
           <div class="inline fields">
             <div class="field ui radio checkbox">
@@ -397,6 +430,20 @@
           </div>
         </div>
 
+        <div class="field">
+          <label> Are you interested in job opportunities?* </label>
+          <input type="hidden" name="interestedJobHidden">
+          <div class="inline fields">
+            <div class="field ui radio checkbox">
+            <input type="radio" name="interestedJob" ng-model="user.profile.interestedJob" id="int-job-1" ng-value=true>
+            <label class="font-weight-300" for="int-job-1"> Yes </label>
+            </div>
+            <div class="field ui radio checkbox">
+            <input type="radio" name="interestedJob" ng-model="user.profile.interestedJob" id="int-job-2" ng-value=false>
+            <label class="font-weight-300" for="int-job-2"> No </label>
+            </div>
+          </div>
+        </div>
 
         <div class="field">
           <label> Your current/former educational institution* </label>
@@ -441,7 +488,7 @@
             <textarea name="projects" ng-model="user.profile.projects">
           </textarea>
           </div>
-          
+
           <div class="field">
             <label>How many hackathons have you participated in?*</label>
             <input type="text" name="participationCount" ng-model="user.profile.participationCount">
@@ -463,6 +510,20 @@
         <div class="field" ng-repeat="item in [1,2,3]">
           <label> Secret #{{ item }} </label>
           <input type="text" ng-model="user.profile.secretQuestions[$index]">
+        </div>
+
+        <div class="field">
+          <label> Terms and Conditions* </label>
+          <div class="grouped fields">
+            <div class="field ui checkbox">
+              <input type="checkbox" id="mlhAgree" ng-model="user.profile.mlhAgree">
+              <label for="mlhAgree" class="font-weight-300">I agree with MLH Code of Conduct and MLH Data Sharing Provision, which can be found <a href="https://firebasestorage.googleapis.com/v0/b/junctioxbudapest.appspot.com/o/code_of_conduct.pdf?alt=media&token=b8de986d-793a-4510-a412-84c4962ff424">here</a>*</label>
+            </div>
+            <div class="field ui checkbox">
+              <input type="checkbox" id="junctionAgree" ng-model="user.profile.junctionAgree">
+              <label for="junctionAgree" class="font-weight-300">I agree with Junction Terms and Conditions, which can be found <a href="https://firebasestorage.googleapis.com/v0/b/junctioxbudapest.appspot.com/o/2018_06_14_term_of_service.pdf?alt=media&token=d90bbcfe-5e30-4c09-b339-b383d0222f39">here</a>*</label>
+            </div>
+          </div>
         </div>
 
         <br>

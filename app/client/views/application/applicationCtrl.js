@@ -187,12 +187,39 @@ angular.module('reg')
                 }
               ]
             },
-            gender: {
-              identifier: 'gender',
+            genderOption: {
+              identifier: 'genderValidationHidden',
               rules: [
                 {
-                  type: 'empty',
-                  prompt: 'Please select a gender.'
+                  type: 'radioSelected[genderOption]',
+                  prompt: 'Please enter your gender.'
+                }
+              ]
+            },
+            interestedJob: {
+              identifier: 'interestedJobHidden',
+              rules: [
+                {
+                  type: 'radioSelected[interestedJob]',
+                  prompt: 'Please select whether you are interested in job opportunities.'
+                }
+              ]
+            },
+            mlhAgree: {
+              identifier: 'mlhAgree',
+              rules: [
+                {
+                  type: 'checked',
+                  prompt: 'You must accept the Terms and Conditions.'
+                }
+              ]
+            },
+            junctionAgree: {
+              identifier: 'junctionAgree',
+              rules: [
+                {
+                  type: 'checked',
+                  prompt: 'You must accept the Terms and Conditions..'
                 }
               ]
             },
