@@ -101,9 +101,9 @@ If you want stats for your new fields:
 - Display them on the admin panel by editing `client/views/admin/stats/` 
 
 ### Secret questions' answers
-Set the answers in env variables, possibly in .env like so:
+Set the answers in env variables, possibly by writing them in the .env file, like so:
 ```
-SECRET_ANSWER_0='the answer of the first secret question, cAsE doesn't matter'
+SECRET_ANSWER_0="the answer of the first secret question, cAsE doesn't matter"
 ```
 
 ### Email Templates
