@@ -89,4 +89,10 @@ SettingsController.getPublicSettings = function(callback){
   Settings.getPublicSettings(callback);
 };
 
+SettingsController.checkSecretAnswer = function(index, answer, callback) {
+  correctAnswer = process.env["SECRET_ANSWER_" + index];
+  answersMatch = correctAnswer.toLowerCase() === answer.toLowerCase();
+  callback(null, {correct: answersMatch});
+};
+
 module.exports = SettingsController;

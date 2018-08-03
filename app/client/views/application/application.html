@@ -1,4 +1,5 @@
 <div id="application" class="page">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
   <div class="divided title">
     Application
   </div>
@@ -507,9 +508,9 @@
           </textarea>
         </div>
 
-        <div class="field" ng-repeat="item in [1,2,3]">
-          <label> Secret #{{ item }} </label>
-          <input type="text" ng-model="user.profile.secretQuestions[$index]">
+        <div class="field" ng-repeat="item in [1]">
+          <label> Secret #{{ item }} <span class="secret-valid" ng-show="secretsValidity[$index]"><i class="fas fa-check"></i> Correct answer!</span><span class="secret-invalid" ng-show="secretsValidity[$index]===false"><i class="fas fa-times"></i> Incorrect answer!</span> </label>
+          <input type="text" ng-model="user.profile.secretQuestions[$index]" id="secret-index-{{ $index }}" ng-change="checkSecret(0)">
         </div>
 
         <div class="field">

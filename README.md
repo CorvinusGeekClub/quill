@@ -100,6 +100,12 @@ If you want stats for your new fields:
 - Recalculate them in `server/services/stats.js`
 - Display them on the admin panel by editing `client/views/admin/stats/` 
 
+### Secret questions' answers
+Set the answers in env variables, possibly in .env like so:
+```
+SECRET_ANSWER_0='the answer of the first secret question, cAsE doesn't matter'
+```
+
 ### Email Templates
 To customize the verification and confirmation emails for your event, put your new email templates in `server/templates/` and edit `server/services/email.js`
 

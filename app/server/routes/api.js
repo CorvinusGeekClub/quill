@@ -135,6 +135,11 @@ module.exports = function(router) {
     }
   });
 
+  // secret questions validation
+  router.post('/users/check-secret-answer', function(req, res) {
+    SettingsController.checkSecretAnswer(req.body.index, req.body.answer, defaultResponse(req, res));
+  });
+
   /**
    * [ADMIN ONLY]
    */

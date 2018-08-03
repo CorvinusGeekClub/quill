@@ -50,6 +50,13 @@ angular.module('reg')
         return $http.post(base + id + '/decline');
       },
 
+      checkSecretAnswerRemotely: function(index, answer) {
+        return $http.post(base + 'check-secret-answer', {
+          index: index,
+          answer: answer
+        });
+      },
+
       // ------------------------
       // Team
       // ------------------------

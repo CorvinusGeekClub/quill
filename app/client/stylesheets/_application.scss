@@ -27,4 +27,13 @@
       margin-top: -0.25em;
     }
   }
+  .secret-valid, .secret-invalid {
+    padding-left: 15px;
+  }
+  .secret-valid {
+    color: green;
+  }
+  .secret-invalid {
+    color: red;
+  }
 }

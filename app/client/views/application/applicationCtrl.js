@@ -21,6 +21,27 @@ angular.module('reg')
         $scope.user.profile.adult = true;
       }
 
+      // server-side checked secrets validity
+      // keys are secret indices
+      // true = valid, undefined = fild empty, false = invalid
+      $scope.secretsValidity = {};
+
+      $scope.checkSecret = function(index) {
+        // initial check, doesn't seem to be possible in controller
+        // so we just check on change now; left here for future?
+        // let secretQsLen = document.querySelectorAll("[id^=secret-index-]").length;
+        // console.log(secretQsLen);
+
+        if ($scope.user.profile.secretQuestions[index].length == 0) {
+          $scope.secretsValidity[index] = undefined;
+          return;
+        }
+        UserService.checkSecretAnswerRemotely(index, $scope.user.profile.secretQuestions[index]).then(function(res) {
+          $scope.secretsValidity[index] = res.data.correct;
+        });
+        // return $scope.secretsValidity[index];
+      }
+
       // Populate the school dropdown
       populateSchools();
       _setupForm();
